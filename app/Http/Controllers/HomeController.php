@@ -369,9 +369,11 @@ class HomeController extends Controller
     public function listingByCategory(Request $request, $category_slug)
     {
         $category = Category::where('slug', $category_slug)->first();
+
         if ($category != null) {
             return $this->search($request, $category->id);
         }
+
         abort(404);
     }
 
@@ -386,6 +388,7 @@ class HomeController extends Controller
 
     public function search(Request $request, $category_id = null, $brand_id = null)
     {
+        $subcat = null;
         $query = $request->q;
         $sort_by = $request->sort_by;
         $min_price = $request->min_price;
@@ -410,7 +413,9 @@ class HomeController extends Controller
         if($category_id != null){
             $category_ids = CategoryUtility::children_ids($category_id);
             $category_ids[] = $category_id;
-
+            $subcat = Category::whereIn('parent_id', $category_ids)->where('level',1)->get();
+            
+            // print_r($subcat);
             $products = $products->whereIn('category_id', $category_ids);
         }
 
@@ -528,7 +533,7 @@ class HomeController extends Controller
 
         $products = filter_products($products)->paginate(12)->appends(request()->query());
 
-        return view('frontend.product_listing', compact('products', 'query', 'category_id', 'brand_id', 'sort_by', 'seller_id','min_price', 'max_price', 'attributes', 'selected_attributes', 'all_colors', 'selected_color'));
+        return view('frontend.product_listing', compact('subcat','products', 'query', 'category_id', 'brand_id', 'sort_by', 'seller_id','min_price', 'max_price', 'attributes', 'selected_attributes', 'all_colors', 'selected_color'));
     }
 
     public function product_content(Request $request){

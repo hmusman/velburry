@@ -298,13 +298,13 @@
 
     {{-- Best Seller --}}
     @if (\App\BusinessSetting::where('type', 'vendor_system_activation')->first()->value == 1)
-    <div id="section_best_sellers">
+  {{--  <div id="section_best_sellers">
 
-    </div>
+    </div>--}}
     @endif
 
     {{-- Top 10 categories and Brands --}}
-    <section class="mb-4">
+   {{-- <section class="mb-4">
         <div class="container">
             <div class="row gutters-10">
                 @if (get_setting('top10_categories') != null)
@@ -387,7 +387,7 @@
                 @endif
             </div>
         </div>
-    </section>
+    </section>--}}
 
 @endsection
 

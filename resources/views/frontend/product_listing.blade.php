@@ -36,6 +36,8 @@
 
 @section('content')
 
+
+
     <section class="mb-4 pt-3">
         <div class="container sm-px-0">
             <form class="" id="search-form" action="" method="GET">
@@ -224,6 +226,43 @@
                             @endif
                         </ul>
 
+                        
+                        @if(count($subcat)>0)
+<h3>Shop By Category</h3>
+<br>
+<div class="row">
+    @foreach ($subcat as $sub)
+
+    <div class="col-xl-3">
+                                    <div class="aiz-card-box border border-light rounded shadow-sm hov-shadow-md has-transition bg-white">
+                                        <div class="position-relative">
+                                            <a href="{{ route('products.category', $sub->slug) }}" class="d-block">
+                                                <img class="img-fit mx-auto h-160px h-md-220px h-xl-270px h-xxl-250px ls-is-cached lazyloaded" src="{{ uploaded_asset($sub->banner) }}" data-src="" alt="Blue For Men Rasasi cologne for men" onerror="this.onerror=null;this.src='http://127.0.0.1/welberry/public/assets/img/placeholder.jpg';">
+                                            </a>
+                                            <div class="absolute-top-right aiz-p-hov-icon">
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="p-md-3 p-2 text-left">
+                                            
+                                            <h3 class="fw-600 fs-13 text-truncate-2 lh-1-4 mb-0">
+                                                <a href="{{ route('products.category', $sub->slug) }}" class="d-block text-reset">{{$sub->name}}</a>
+                                            </h3>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br>
+
+    <!-- {{ uploaded_asset($sub->banner) }} -->
+    <!-- {{$sub->name}} -->
+
+    <!-- {{ route('products.category', $sub->slug) }} -->
+
+    @endforeach
+</div>
+@endif 
                         <div class="text-left">
                             <div class="d-flex">
                                 <div class="form-group w-200px">
