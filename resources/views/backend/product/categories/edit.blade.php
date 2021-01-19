@@ -72,7 +72,7 @@
 
                             @foreach ($categories as $category1)
 
-                                <option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
+                                <option value="{{ $category1->id }}">{{ $category->getTranslation('name') }}</option>
 
                                 @foreach ($category1->childrenCategories as $childCategory)
 
