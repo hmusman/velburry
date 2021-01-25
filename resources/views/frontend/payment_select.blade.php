@@ -326,8 +326,15 @@
                         </div>
                     </div>
                     <div class="pt-3">
+                        <label class="aiz-checkbox">                            
+                            <!-- <span class="aiz-square-check"></span> -->
+                            <span class="text-danger">{{ translate('Jazz Cash: +92300-4192038 & Easy Paisa: +92300-4192038, after payment send us receipt on our whatsapp number: +92300-4192038')}}</span>
+                        </label>
+                   
+                    </div>
+                    <div class="pt-3">
                         <label class="aiz-checkbox">
-                            <input type="checkbox" required id="agree_checkbox">
+                            <input type="checkbox" required id="agree_checkbox" checked>
                             <span class="aiz-square-check"></span>
                             <span>{{ translate('I agree to the')}}</span>
                         </label>

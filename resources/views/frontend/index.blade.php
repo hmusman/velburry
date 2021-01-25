@@ -304,7 +304,7 @@
     @endif
 
     {{-- Top 10 categories and Brands --}}
-   {{-- <section class="mb-4">
+    <section class="mb-4">
         <div class="container">
             <div class="row gutters-10">
                 @if (get_setting('top10_categories') != null)
@@ -360,7 +360,8 @@
                                 @php $brand = \App\Brand::find($value); @endphp
                                 @if ($brand != null)
                                     <div class="col-sm-6">
-                                        <a href="{{ route('products.brand', $brand->slug) }}" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">
+                                        <!--<a href="{{ route('products.brand', $brand->slug) }}" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">-->
+                                        <a href="#" class="bg-white border d-block text-reset rounded p-2 hov-shadow-md mb-2">
                                             <div class="row align-items-center no-gutters">
                                                 <div class="col-4 text-center">
                                                     <img
@@ -387,7 +388,7 @@
                 @endif
             </div>
         </div>
-    </section>--}}
+    </section>
 
 @endsection
 

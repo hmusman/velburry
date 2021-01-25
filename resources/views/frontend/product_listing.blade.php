@@ -462,13 +462,13 @@
 
 <br>
 
-<div class="row">
+<div class="row gutters-5 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-4 row-cols-md-3 row-cols-3">
 
     @foreach ($subcat as $sub)
 
 
 
-    <div class="col-xl-2">
+    <div class="col-xl-3">
 
                                     <div class="aiz-card-box border border-light rounded shadow-sm hov-shadow-md has-transition bg-white">
 
