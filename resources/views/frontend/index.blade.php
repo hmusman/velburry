@@ -109,6 +109,28 @@
         </div>
     </div>
 
+    
+        {{-- Banner section 1 --}}
+    <div class="mb-4">
+        <div class="container">
+            <div class="row gutters-10">
+                @if (get_setting('home_banner1_images') != null)
+                    @php $banner_1_imags = json_decode(get_setting('home_banner1_images')); @endphp
+                    @foreach ($banner_1_imags as $key => $value)
+                        <div class="col-xl col-md-6">
+                            <div class="mb-3 mb-lg-0">
+                                <a href="{{ json_decode(get_setting('home_banner1_links'), true)[$key] }}" class="d-block text-reset">
+                                    <img src="{{ static_asset('assets/img/placeholder-rect.jpg') }}" data-src="{{ uploaded_asset($banner_1_imags[$key]) }}" alt="{{ env('APP_NAME') }} promo" class="img-fluid lazyload">
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+    </div>
+
+    
     {{-- Flash Deal --}}
     @php
         $flash_deal = \App\FlashDeal::where('status', 1)->where('featured', 1)->first();
@@ -186,25 +208,6 @@
     </section>
     @endif
 
-    {{-- Banner section 1 --}}
-    <div class="mb-4">
-        <div class="container">
-            <div class="row gutters-10">
-                @if (get_setting('home_banner1_images') != null)
-                    @php $banner_1_imags = json_decode(get_setting('home_banner1_images')); @endphp
-                    @foreach ($banner_1_imags as $key => $value)
-                        <div class="col-xl col-md-6">
-                            <div class="mb-3 mb-lg-0">
-                                <a href="{{ json_decode(get_setting('home_banner1_links'), true)[$key] }}" class="d-block text-reset">
-                                    <img src="{{ static_asset('assets/img/placeholder-rect.jpg') }}" data-src="{{ uploaded_asset($banner_1_imags[$key]) }}" alt="{{ env('APP_NAME') }} promo" class="img-fluid lazyload">
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
-            </div>
-        </div>
-    </div>
 
     {{-- Featured Section --}}
     <div id="section_featured">

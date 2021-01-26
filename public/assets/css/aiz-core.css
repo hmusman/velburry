@@ -5,6 +5,11 @@ div[class="aiz-card-box border border-light rounded shadow-sm hov-shadow-md has-
 }
 
 
+div[class="aiz-carousel dots-inside-bottom mobile-img-auto-height slick-initialized slick-slider slick-dotted"] > div[class="slick-list draggable"] > .slick-track> .slick-slide > div > .carousel-box > a > img{
+    
+
+ height: 100% !important;
+}
 
 
 
